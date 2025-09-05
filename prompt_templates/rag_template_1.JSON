@@ -1,0 +1,5 @@
+{
+  "version": "1.0",
+  "task": "Add prompt to returned vector db response",
+  "context": "Being an AI assistant. Use the following context to answer user's question.\nIf you don't find answer in content return you don't have enough information."
+}
