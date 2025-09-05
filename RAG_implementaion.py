@@ -11,14 +11,11 @@ def QueryChromas(query,CollectionName,RetrurnResults=1,SearchOutsideDB=False):
         query_texts=[query],
         n_results=RetrurnResults,
     )
-    #print("*"*25,"DB Results=>",results,"*"*25)
     response = generateContentUsingGenAI(results,query,SearchOutsideDB)
     return response
 def getDataFromJSONFile(FileName,KeyName):
     with open(FileName, "r") as config_file:
         config_data = json.load(config_file)
-    #print("*"*25,"JSON Data","*"*25)
-    #print(config_data.get(KeyName))
     return config_data.get(KeyName)
 
 def generateContentUsingGenAI(results,query,SearchOutsideDB):
@@ -34,9 +31,6 @@ def generateContentUsingGenAI(results,query,SearchOutsideDB):
     User Question:
     {query}
     """
-    # print("*" * 25, "Prompt Data", "*" * 25)
-    # print(prompt)
-    # print("*"*50)
     model = genai.GenerativeModel('gemini-1.5-pro-latest')
     response = model.generate_content(prompt)
     print("*" * 25, "Gen AI Response:", "*" * 25)
